@@ -6,7 +6,7 @@ def longerThen(n):
     """
     returns a lamda function that checks if a word is onger than n characters
     """
-    return lambda word: len(word) > n
+    return lambda word: len(word) >= n
 
 
 def main():
@@ -15,12 +15,15 @@ def main():
     """
     args = sys.argv
 
+    if len(args) != 3:
+        print("AssertionError: the arguments are bad")
+        return
+    S = args[1]
     try:
-        assert len(args) == 3
-        S = args[1]
         N = int(args[2])
-    except Exception:
-        raise AssertionError("the arguments are bad")
+    except ValueError:
+        print("AssertionError: the arguments are bad")
+        return
     words = S.split()
     res = [word for word in ft_filter(longerThen(N), words)]
     print(res)

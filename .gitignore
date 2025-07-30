@@ -1,1 +1,3 @@
 .vscode/
+# Ignore tous les dossiers __pycache__ à n'importe quel niveau
+**/__pycache__/
