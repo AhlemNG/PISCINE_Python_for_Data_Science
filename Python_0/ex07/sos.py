@@ -1,61 +1,57 @@
 import sys
 
 
-
 def isValidArg(string):
-    "checks if an argument is a string that contains only alpahnumeric carachters and spaces???"
-    for letter in string:
-        if letter.isdigit():
-            return True
-        if letter.isupper():
-            return True
-        if letter.islower():
-            return True
-        if letter.isspace():
-            return True
-        return False
+    """
+    string: a string to validate
+    return: True if all characters in the string are alphanumeric or spaces,
+            False otherwise
+    """
+    for char in string:
+        if not (char.isalnum() or char.isspace()):
+            return False
+    return True
 
 
 def toMorse(string):
-    "convertit un string en morse code"
-    MORSE = {" ":  "/ ",
-                    "A": ".- ", "B": "-...", "C": "-.-.",
-                    "D": "-..", "E": ".",
-                    "F": "..-.", "G": "--.", "H": "....",
-                    "I": "..", "J": ".---", "K": "-.-",
-                    "L": ".-..", "M": "--", "N": "-.",
-                    "O": "---", "P": ".--.", "Q": "--.-",
-                    "R": ".-.", "S": "...", "T": "-",
-                    "U": "..-", "V": "...-", "W": ".--",
-                    "X": "-..-", "Y": "-.--", "Z": "--..",
-                    "1": ".----", "2": "..---", "3": "...--",
-                    "4": "....-", "5": ".....", "6": "-....",
-                    "7": "--...", "8": "---..", "9": "----.",
-                    "0": "-----"}
+    """
+    string: a string to convert to Morse code
+    return: a string representing the Morse code translation of the input,
+            with letters separated by spaces and words separated by '/'
+    """
+    NESTED_MORSE = {" ": "/ ",
+                    "A": ".- ", "B": "-... ", "C": "-.-. ",
+                    "D": "-.. ", "E": ". ",
+                    "F": "..-. ", "G": "--. ", "H": ".... ",
+                    "I": ".. ", "J": ".--- ", "K": "-.- ",
+                    "L": ".-.. ", "M": "-- ", "N": "-. ",
+                    "O": "--- ", "P": ".--. ", "Q": "--.- ",
+                    "R": ".-. ", "S": "... ", "T": "- ",
+                    "U": "..- ", "V": "...- ", "W": ".-- ",
+                    "X": "-..- ", "Y": "-.-- ", "Z": "--.. ",
+                    "1": ".---- ", "2": "..--- ", "3": "...-- ",
+                    "4": "....- ", "5": "..... ", "6": "-.... ",
+                    "7": "--... ", "8": "---.. ", "9": "----. ",
+                    "0": "----- "}
 
-
-    for s in string.upper():
-        print(MORSE[s])
+    result = []
+    for char in string.upper():
+        if char in NESTED_MORSE:
+            result.append(NESTED_MORSE[char])
+    return ''.join(result)
 
 
 def main():
     """
-    write something here
+    args: command line arguments
+    return: prints the Morse code translation of the input argument if valid,
+            otherwise prints an error message
     """
     args = sys.argv
-    if len(args) != 2:
+    if len(args) != 2 or not isValidArg(args[1]):
         print("AssertionError: the arguments are bad")
         return
-    print(args)
-    try:
-        if isValidArg(args[1][0]) == False:
-            print("AssertionError: the arguments are bad**not valid")
-            return
-        toMorse(args[1])
-    except ValueError:
-        print("AssertionError: the arguments are bad")
-        return
-
+    print(toMorse(args[1]))
 
 
 if __name__ == "__main__":
