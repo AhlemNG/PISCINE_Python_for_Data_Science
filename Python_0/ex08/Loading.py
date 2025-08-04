@@ -1,11 +1,16 @@
 def ft_tqdm(lst: range) -> None:
     total = len(lst)
-    for i, val in enumerate(lst, start=1):
-        percent = int(i / total * 100)
-        bar_length = 20
-        filled_length = int(bar_length * i / total)
-        bar = '#' * filled_length + '-' * (bar_length - filled_length)
-        print(f'{percent}% |{bar}| {i}/{total}')
+    bar_length = 79
+    for i in range(total):
+        percent = int((i + 1) / total * 100)
+        filled_length = int(bar_length * (i + 1) / total)
+        bar = '■' * filled_length + '-' * (bar_length - filled_length)
+        print(f'\r{percent:3d}% |{bar}| {i + 1}/{total}', end='', flush=True)
+        yield lst[i]
+    print()
+
+import time
 
 
-ft_tqdm(range(10))
+for elem in ft_tqdm(range(10)):
+    time.sleep(0.2)
