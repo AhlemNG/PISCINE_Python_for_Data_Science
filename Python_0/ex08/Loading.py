@@ -9,8 +9,8 @@ def ft_tqdm(lst: range) -> None:
         yield lst[i]
     print()
 
-import time
+# import time
 
 
-for elem in ft_tqdm(range(10)):
-    time.sleep(0.2)
+# for elem in ft_tqdm(range(10)):
+#     time.sleep(0.2)

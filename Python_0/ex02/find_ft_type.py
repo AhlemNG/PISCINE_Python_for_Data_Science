@@ -9,7 +9,6 @@ def all_thing_is_obj(object: any) -> int:
 
     elif type_name == 'Int':
         print("Type not found")
-    
     else:
         print(type_name + " : " + str(type(object)))
 

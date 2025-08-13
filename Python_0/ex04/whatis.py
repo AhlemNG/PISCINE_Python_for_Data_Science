@@ -8,7 +8,7 @@ try:
     if len(args) == 1:
         exit()
     nb = int(args[1])
-    if nb % 2 ==  0:
+    if nb % 2 == 0:
         print("I'm Even.")
     else:
         print("I'm Odd.")

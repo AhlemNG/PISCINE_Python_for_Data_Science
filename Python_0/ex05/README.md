@@ -1,0 +1,2 @@
+◦ pip install flake8
+◦ alias norminette=flake
