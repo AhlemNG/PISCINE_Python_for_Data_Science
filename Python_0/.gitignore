@@ -1,0 +1,8 @@
+# Dossiers de configuration IDE
+.vscode/
+.idea/
+
+# Python (si applicable)
+__pycache__/
+*.pyc
+*.pyo
