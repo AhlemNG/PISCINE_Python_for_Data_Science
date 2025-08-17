@@ -6,8 +6,6 @@ def Chars_Sum(string):
     calculate sum of different character types in a string"""
     upper = lower = punct = digits = spaces = 0
     for character in string:
-        if character in ("\n", "\t", "\r", "\f", "\v"):
-            spaces += 1
         if character.isupper():
             upper += 1
         elif character.islower():
@@ -38,11 +36,11 @@ def main():
             print("What is the text to count?")
             text = sys.stdin.readline()
             Chars_Sum(text)
-        if len(args) < 2:
-            raise Exception("please provide a string")
+        if len(args) > 2:
+            raise AssertionError("more than one argument are provided")
         Chars_Sum(args[1])
-    except Exception as e:
-        print(e)
+    except AssertionError as e:
+        print("AssertionError:", e)
 
 
 if __name__ == "__main__":
