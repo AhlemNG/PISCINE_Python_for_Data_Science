@@ -3,7 +3,7 @@ import sys
 
 def Chars_Sum(string):
     """__doc__
-    calculate sum"""
+    calculate sum of different character types in a string"""
     upper = lower = punct = digits = spaces = 0
     for character in string:
         if character in ("\n", "\t", "\r", "\f", "\v"):
@@ -29,10 +29,15 @@ def Chars_Sum(string):
 def main():
     """
     __doc_
-    write something here"""
+    Entry point of the program.
+    Reads the command-line argument and passes it to `Chars_Sum`
+    for character counting analysis."""
     args = sys.argv
     try:
-
+        if len(args) == 1:
+            print("What is the text to count?")
+            text = sys.stdin.readline()
+            Chars_Sum(text)
         if len(args) < 2:
             raise Exception("please provide a string")
         Chars_Sum(args[1])

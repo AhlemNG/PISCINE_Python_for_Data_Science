@@ -6,7 +6,7 @@ def longerThen(n):
     """
     returns a lamda function that checks if a word is onger than n characters
     """
-    return lambda word: len(word) >= n
+    return lambda word: len(word) > n
 
 
 def main():

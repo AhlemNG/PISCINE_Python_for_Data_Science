@@ -1,10 +1,8 @@
 def ft_filter(function, iterable):
-    """
-    function: a function to apply to each element of the iterable(or None)
-    iterable: a sequence, iterator, or a container to filter
-    return: an iterator with elements for which function(element) is True,
-            or elements that are evaluated True if function is None
-    """
+    """filter(function or None, iterable) --> filter object
+
+Return an iterator yielding those items of iterable for which function(item)
+is true. If function is None, return the items that are true."""
     if function:
         return (item for item in iterable if function(item))
     return (item for item in iterable if item)
