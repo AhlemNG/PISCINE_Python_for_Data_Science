@@ -2,8 +2,7 @@ import sys
 
 
 def Chars_Sum(string):
-    """__doc__
-    calculate sum of different character types in a string"""
+    """calculate sum of different character types in a string"""
     upper = lower = punct = digits = spaces = 0
     for character in string:
         if character.isupper():
@@ -25,9 +24,7 @@ def Chars_Sum(string):
 
 
 def main():
-    """
-    __doc_
-    Entry point of the program.
+    """Entry point of the program.
     Reads the command-line argument and passes it to `Chars_Sum`
     for character counting analysis."""
     args = sys.argv
@@ -36,9 +33,10 @@ def main():
             print("What is the text to count?")
             text = sys.stdin.readline()
             Chars_Sum(text)
-        if len(args) > 2:
+        elif len(args) == 2:
+            Chars_Sum(args[1])
+        else:
             raise AssertionError("more than one argument are provided")
-        Chars_Sum(args[1])
     except AssertionError as e:
         print("AssertionError:", e)
 

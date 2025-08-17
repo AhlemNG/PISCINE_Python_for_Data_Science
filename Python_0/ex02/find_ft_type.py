@@ -1,10 +1,9 @@
-def all_thing_is_obj(object: any) -> int:
-    type_name = type(object).__name__.capitalize()
+def all_thing_is_obj(obj: any) -> int:
+    type_name = type(obj).__name__.capitalize()
     if type_name == 'Str':
-        type_name = str(type(object))
-        print(object + " is in the kitchen : " + type_name)
-    elif type_name == 'Int':
-        print("Type not found")
+        print(f"{obj} is in the kitchen : {type(obj)}")
+    elif type_name in ['List', 'Tuple', 'Set', 'Dict']:
+        print(f"{type_name} : {type(obj)}")
     else:
-        print(type_name + " : " + str(type(object)))
+        print("Type not Found")
     return 42

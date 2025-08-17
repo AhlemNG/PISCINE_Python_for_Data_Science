@@ -11,7 +11,7 @@ def NULL_not_found(object: any) -> int:
         print("Zero:", object, obj_type)
         return (0)
     elif object == "":
-        print("Empty:", obj_type)
+        print("Empty:", object, obj_type)
         return (0)
     elif object is False:
         print("Fake:", object, obj_type)
