@@ -1,0 +1,9 @@
+# Ignorer les dossiers __pycache__ partout
+__pycache__/
+*/__pycache__/
+
+# Ignorer les fichiers temporaires d’éditeur
+.vscode/
+
+# Ignorer les fichiers de test
+tester.py/

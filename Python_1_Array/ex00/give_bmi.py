@@ -1,6 +1,8 @@
 import numpy as np
 
-def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
+
+def give_bmi(height: list[int | float],
+             weight: list[int | float]) -> list[int | float]:
     """Calculates the list of BMI(s) based on two gives lists
     - height
     - weight
@@ -14,10 +16,11 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
             raise TypeError("arguments must contain only ints or floats")
         if h <= 0:
             raise ValueError("height must be bigger then zero")
-    height_array = np.array(height, dtype = float)
-    weight_array = np.array(weight, dtype = float)
+    height_array = np.array(height, dtype=float)
+    weight_array = np.array(weight, dtype=float)
     bmi = weight_array / (height_array ** 2)
     return bmi.tolist()
+
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """
@@ -34,15 +37,15 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     bmi_array = np.array(bmi, dtype=float)
     result = bmi_array > limit
 
-    return bmi_array.tolist()
+    return result.tolist()
 
 
-def main():
-    h = [1.80, 1.60, 1.75]
-    w = [75, 50, 100]
-    bmi_list = give_bmi(h, w)
-    print("BMI:", bmi_list)
-    print("Au-dessus de 25 ?", apply_limit(bmi_list, 25))
+# def main():
+#     h = [1.80, 1.60, 1.75]
+#     w = [75, 50, 100]
+#     bmi_list = give_bmi(h, w)
+#     print("BMI:", bmi_list)
+#     print("Au-dessus de 25 ?", apply_limit(bmi_list, 25))
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
