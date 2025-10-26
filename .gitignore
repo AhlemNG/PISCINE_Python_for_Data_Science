@@ -10,4 +10,4 @@ __pycache__/
 tester.py/
 
 # Ignore virtual environments
-.env/
+/env/
