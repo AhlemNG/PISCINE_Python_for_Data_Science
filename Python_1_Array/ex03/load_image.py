@@ -17,6 +17,6 @@ def ft_load(path: str) -> np.ndarray:
     except FileNotFoundError:
         print(f"Error: File '{path}' not found.")
     except Exception as e:
-        print(f"Error while loading image: {e}")
+        print(f"Error while loading IMAGE: {e}")
 
     return None
