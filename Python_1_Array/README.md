@@ -186,3 +186,8 @@ Python 3.10.18
 - `pyenv` manages the Python version without modifying the system Python.
 - `myenv` is the project's virtual environment.
 - `requirements.txt` contains the project's dependencies.
+
+if warning to show image, 
+```bash    
+pip install PyQt5
+```
