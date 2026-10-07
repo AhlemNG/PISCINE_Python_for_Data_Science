@@ -1,23 +1,18 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.image as mpimg
 from load_image import ft_load
 
-
-def to_gray(img: np.ndarray) -> np.array:
+def to_gray(img: np.array) -> np.array:
     """
     returns a grayscaled image based on a given image,
     """
-    if img.ndim == 3:
-        gray = img[:, :, 0] * 0.2989 + img[:, :, 1] * 0.5870 \
-            + img[:, :, 2] * 0.1140
-    else:
-        gray = img
-    return gray
+    return np.dot(img[...,:3], [0.2989, 0.5870, 0.1140])
 
 
-def zoom_image(array: np.ndarray):
+def zoom_image(array: np.array):
     """
-    Zooms ap part of a given image using slicing methodand shows it with axes.
+    Zooms a part of a given image using slicing methodand shows it with axes.
     """
     try:
         if array is None:
@@ -35,12 +30,13 @@ def main():
     path = "animal.jpeg"
     img = ft_load(path)
     if img is not None:
+        print(f"The shape of image is: {img.shape}")
         print(img)
         gray = to_gray(img)
         zoomed = zoom_image(gray)
         print(zoomed)
 
-        plt.imshow(zoomed, cmap='gray', vmin=0, vmax=255)
+        plt.imshow(zoomed, cmap=plt.get_cmap('gray'))
         plt.show()
 
 
