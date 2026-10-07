@@ -41,6 +41,9 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
 
 
 def main():
+    """    # Load the image, convert it to grayscale, crop a 400x400 section,
+    and display the resulting image.
+    """
     h = [1.80, 1.60, 1.75]
     w = [75, 50, 100]
     bmi_list = give_bmi(h, w)

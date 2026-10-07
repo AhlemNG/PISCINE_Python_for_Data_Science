@@ -11,6 +11,7 @@ def ft_load(path: str) -> np.array:
     try:
         img = Image.open(path)
         img_arr = np.array(img)
+        print(f"The shape of image is: {img_arr.shape}")
         return (img_arr)
     except FileNotFoundError:
         print(f"Error: File '{path}' not found.")
@@ -19,10 +20,10 @@ def ft_load(path: str) -> np.array:
     return None
 
 
-# def main():
-#     print(ft_load("landscape.jpg"))
-#     print(ft_load("non_existent_image.jpg"))
+def main():
+    print(ft_load("landscape.jpg"))
+    print(ft_load("non_existent_image.jpg"))
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

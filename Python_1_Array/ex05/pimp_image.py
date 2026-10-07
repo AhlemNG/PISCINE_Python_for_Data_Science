@@ -58,34 +58,32 @@ def ft_grey(array) -> np.ndarray:
     return np.repeat(grey[:, :, np.newaxis], 3, axis=2)
 
 
-if __name__ == "__main__":
+def main():
     array = ft_load("landscape.jpg")
 
-    inverted = ft_invert(array)
+    operations = [
+        ("Original", lambda x: x),
+        ("Invert", ft_invert),
+        ("Red", ft_red),
+        ("Green", ft_green),
+        ("Blue", ft_blue),
+        ("Grey", ft_grey),
+    ]
 
-    print("Original shape:", array.shape)
-    print("Inverted shape:", inverted.shape)
+    plt.figure(figsize=(15, 10))
 
-    plt.imshow(inverted)
-    plt.title("Inverted Image")
+    for i, (name, operation) in enumerate(operations, 1):
+        result = operation(array)
+
+        print(f"{name}: shape = {result.shape}")
+
+        plt.subplot(3, 2, i)
+        plt.imshow(result)
+        plt.xlabel(f"Figure VIII.{i}: {name}")
+        plt.xticks([])
+        plt.yticks([])
     plt.show()
 
 
-def ft_render(original, modified):
-    """Render original and modified images side by side."""
-    check_array(original)
-    check_array(modified)
-
-    plt.figure(figsize=(12, 5))
-
-    plt.subplot(1, 2, 1)
-    plt.imshow(original)
-    plt.title("Original")
-    plt.axis("off")
-
-    plt.subplot(1, 2, 2)
-    plt.imshow(modified)
-    plt.title("Modified")
-    plt.axis("off")
-
-    plt.show()
+if __name__ == "__main__":
+    main()

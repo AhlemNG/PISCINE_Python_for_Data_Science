@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib.image as mpimg
 from load_image import ft_load
+
 
 def to_gray(img: np.array) -> np.array:
     """
     returns a grayscaled image based on a given image,
     """
-    return np.dot(img[...,:3], [0.2989, 0.5870, 0.1140])
+    return np.dot(img[..., :3], [0.2989, 0.5870, 0.1140])
 
 
 def zoom_image(array: np.array):
@@ -30,7 +30,6 @@ def main():
     path = "animal.jpeg"
     img = ft_load(path)
     if img is not None:
-        print(f"The shape of image is: {img.shape}")
         print(img)
         gray = to_gray(img)
         zoomed = zoom_image(gray)
